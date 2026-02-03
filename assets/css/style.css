@@ -749,7 +749,7 @@ main {
 }
 
 .clients-item img {
-  width: 100%;
+  width: 25%;
   filter: grayscale(1);
   transition: var(--transition-1);
 }
@@ -1882,26 +1882,3 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 
-/* ===============================
-   FIX CLIENTS LOGO SIZE (2 LOGO)
-   =============================== */
-
-.clients-list {
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-
-  overflow: hidden;
-  scroll-snap-type: none;
-}
-
-.clients-item {
-  min-width: auto !important;
-  width: auto !important;
-}
-
-.clients-item img {
-  max-width: 140px;   /* ukuran NORMAL kaya waktu banyak logo */
-  width: auto;
-  height: auto;
-}
