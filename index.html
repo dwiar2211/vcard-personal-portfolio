@@ -890,6 +890,7 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    e.stopPropagation(); // ⛔ stop script.js template
 
     const formData = new FormData(form);
 
@@ -900,14 +901,14 @@
         body: formData,
         mode: "no-cors"
       }
-    );
+    ).then(() => {
+      successBox.style.display = "block";
+      form.reset();
 
-    successBox.style.display = "block";
-    form.reset();
-
-    setTimeout(() => {
-      successBox.style.display = "none";
-    }, 4000);
+      setTimeout(() => {
+        successBox.style.display = "none";
+      }, 4000);
+    });
   });
 </script>
 
