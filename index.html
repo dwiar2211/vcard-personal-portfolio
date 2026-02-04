@@ -826,10 +826,8 @@
         <section class="contact-form">
 
           <h3 class="h3 form-title">Contact Form</h3>
-<form action="https://docs.google.com/forms/d/e/1FAIpQLSfeUDtBn9735uX6nPqLxI78Q_31CPCB2u9y3Y6oe7FT5Rvfbg/formResponse"
-      method="POST"
-      target="_blank"
-      class="form">
+<form class="form" id="contactForm">
+
 
   <div class="input-wrapper">
     <input type="text"
@@ -857,6 +855,10 @@
 
 </form>
 
+          <div id="formSuccess" class="form-success">
+  Your message has been sent.
+</div>
+
 
         </section>
 
@@ -881,6 +883,34 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+  const form = document.getElementById("contactForm");
+  const successBox = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSfeUDtBn9735uX6nPqLxI78Q_31CPCB2u9y3Y6oe7FT5Rvfbg/formResponse",
+      {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      }
+    );
+
+    successBox.style.display = "block";
+    form.reset();
+
+    setTimeout(() => {
+      successBox.style.display = "none";
+    }, 4000);
+  });
+</script>
+
 
 </body>
 
